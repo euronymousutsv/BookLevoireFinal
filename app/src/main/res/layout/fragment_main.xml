@@ -27,7 +27,7 @@
             app:layout_constraintVertical_bias="0.5">
 
             <EditText
-                android:id="@+id/editTextTextPassword"
+                android:id="@+id/signupPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -38,11 +38,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress"
+                app:layout_constraintTop_toBottomOf="@+id/signupEmail"
                 app:layout_constraintVertical_bias="0.14" />
 
             <EditText
-                android:id="@+id/editTextTextEmailAddress"
+                android:id="@+id/signupEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -66,11 +66,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+                app:layout_constraintTop_toBottomOf="@+id/signupPassword"
                 app:layout_constraintVertical_bias="0.298" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/signinTxtV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/playfair_display_sc"
