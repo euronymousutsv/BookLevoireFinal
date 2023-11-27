@@ -13,10 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.utsav.booklevoire.R;
+import com.utsav.booklevoire.databinding.FragmentDashboardBinding;
 import com.utsav.booklevoire.viewModel.DashboardViewModel;
 
 public class Dashboard extends Fragment {
-
+FragmentDashboardBinding binding;
     private DashboardViewModel mViewModel;
 
     public static Dashboard newInstance() {
@@ -26,7 +27,12 @@ public class Dashboard extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_dashboard, container, false);
+       // return inflater.inflate(R.layout.fragment_dashboard, container, false);
+    binding=FragmentDashboardBinding.inflate(inflater,container,false);
+    View view=binding.getRoot();
+    return view;
+
+
     }
 
     @Override
@@ -34,6 +40,11 @@ public class Dashboard extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(DashboardViewModel.class);
         // TODO: Use the ViewModel
+    }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding=null;
     }
 
 }

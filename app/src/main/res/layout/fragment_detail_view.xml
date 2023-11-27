@@ -27,11 +27,12 @@
                 android:id="@+id/imageView2"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:src="@tools:sample/avatars"
+                android:src="@drawable/baseline_book_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/baseline_book_24" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
@@ -51,6 +52,7 @@
         android:id="@+id/bookName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/playfair_display_sc"
         android:text="Book Name"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -65,6 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="42dp"
+        android:fontFamily="@font/playfair_display_sc"
         android:text="Author"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

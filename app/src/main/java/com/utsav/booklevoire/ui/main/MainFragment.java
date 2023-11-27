@@ -13,10 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.utsav.booklevoire.R;
+import com.utsav.booklevoire.databinding.FragmentMainBinding;
 import com.utsav.booklevoire.viewModel.MainViewModel;
 
 public class MainFragment extends Fragment {
-
+FragmentMainBinding binding;
     private MainViewModel mViewModel;
 
     public static MainFragment newInstance() {
@@ -34,7 +35,15 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        //return inflater.inflate(R.layout.fragment_main, container, false);
+       binding=FragmentMainBinding.inflate(inflater,container,false);
+       View view   =binding.getRoot();
+       return view;
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding=null;
+    }
 }

@@ -13,10 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.utsav.booklevoire.R;
+import com.utsav.booklevoire.databinding.FragmentSignupBinding;
 import com.utsav.booklevoire.viewModel.SignupViewModel;
 
 public class Signup extends Fragment {
-
+FragmentSignupBinding binding;
     private SignupViewModel mViewModel;
 
     public static Signup newInstance() {
@@ -26,7 +27,11 @@ public class Signup extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_signup, container, false);
+        //return inflater.inflate(R.layout.fragment_signup, container, false);
+        binding=FragmentSignupBinding.inflate(inflater,container,false);
+        View view=binding.getRoot();
+        return view;
+
     }
 
     @Override
@@ -36,4 +41,9 @@ public class Signup extends Fragment {
         // TODO: Use the ViewModel
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding=null;
+    }
 }

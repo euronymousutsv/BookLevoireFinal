@@ -18,11 +18,11 @@
         app:layout_constraintVertical_bias="0.0">
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/image1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@tools:sample/avatars"
-            android:visibility="gone"
+            android:src="@drawable/baseline_book_24"
+            app:srcCompat="@drawable/baseline_book_24"
             tools:layout_editor_absoluteX="19dp"
             tools:layout_editor_absoluteY="56dp" />
     </androidx.cardview.widget.CardView>
@@ -39,13 +39,13 @@
         app:layout_constraintVertical_bias="0.0">
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/image2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@tools:sample/avatars"
-            android:visibility="gone"
-            tools:layout_editor_absoluteX="155dp"
-            tools:layout_editor_absoluteY="56dp" />
+            android:src="@drawable/baseline_book_24"
+            app:srcCompat="@drawable/baseline_book_24"
+            tools:src="@tools:sample/avatars" />
+
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -60,13 +60,12 @@
         app:layout_constraintVertical_bias="1.0">
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/image3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@tools:sample/avatars"
-            android:visibility="gone"
-            tools:layout_editor_absoluteX="19dp"
-            tools:layout_editor_absoluteY="277dp" />
+            android:src="@drawable/baseline_book_24"
+            app:srcCompat="@drawable/baseline_book_24" />
+
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -81,13 +80,11 @@
         app:layout_constraintVertical_bias="0.101">
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/image4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@tools:sample/avatars"
-            android:visibility="gone"
-            tools:layout_editor_absoluteX="284dp"
-            tools:layout_editor_absoluteY="56dp" />
+            android:src="@drawable/baseline_book_24"
+            app:srcCompat="@drawable/baseline_book_24" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -102,13 +99,12 @@
         app:layout_constraintVertical_bias="0.333">
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/image5"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@tools:sample/avatars"
-            android:visibility="gone"
-            tools:layout_editor_absoluteX="284dp"
-            tools:layout_editor_absoluteY="488dp" />
+            android:src="@drawable/baseline_book_24"
+            app:srcCompat="@drawable/baseline_book_24" />
+
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -123,13 +119,12 @@
         app:layout_constraintVertical_bias="1.0">
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/image6"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@tools:sample/avatars"
-            android:visibility="gone"
-            tools:layout_editor_absoluteX="19dp"
-            tools:layout_editor_absoluteY="488dp" />
+            android:src="@drawable/baseline_book_24"
+            app:srcCompat="@drawable/baseline_book_24" />
+
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -144,13 +139,12 @@
         app:layout_constraintVertical_bias="0.127">
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/image7"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@tools:sample/avatars"
-            android:visibility="gone"
-            tools:layout_editor_absoluteX="284dp"
-            tools:layout_editor_absoluteY="277dp" />
+            android:src="@drawable/baseline_book_24"
+            app:srcCompat="@drawable/baseline_book_24" />
+
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -165,13 +159,12 @@
         app:layout_constraintVertical_bias="1.0">
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/image8"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@tools:sample/avatars"
-            android:visibility="gone"
-            tools:layout_editor_absoluteX="155dp"
-            tools:layout_editor_absoluteY="277dp" />
+            android:src="@drawable/baseline_book_24"
+            app:srcCompat="@drawable/baseline_book_24" />
+
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -186,13 +179,12 @@
         app:layout_constraintVertical_bias="1.0">
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/image9"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@tools:sample/avatars"
-            android:visibility="gone"
-            tools:layout_editor_absoluteX="155dp"
-            tools:layout_editor_absoluteY="488dp" />
+            android:src="@drawable/baseline_book_24"
+            app:srcCompat="@drawable/baseline_book_24" />
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

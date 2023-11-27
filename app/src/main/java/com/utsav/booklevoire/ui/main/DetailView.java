@@ -13,10 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.utsav.booklevoire.R;
+import com.utsav.booklevoire.databinding.FragmentDetailViewBinding;
 import com.utsav.booklevoire.viewModel.DetailViewViewModel;
 
 public class DetailView extends Fragment {
-
+FragmentDetailViewBinding binding;
     private DetailViewViewModel mViewModel;
 
     public static DetailView newInstance() {
@@ -26,7 +27,11 @@ public class DetailView extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_detail_view, container, false);
+        //return inflater.inflate(R.layout.fragment_detail_view, container, false);
+        binding=FragmentDetailViewBinding.inflate(inflater,container,false);
+        View view =  binding.getRoot();
+
+        return view;
     }
 
     @Override
@@ -34,6 +39,11 @@ public class DetailView extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(DetailViewViewModel.class);
         // TODO: Use the ViewModel
+    }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding=null;
     }
 
 }
