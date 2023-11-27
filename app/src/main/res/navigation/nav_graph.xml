@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.utsav.booklevoire.ui.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_dashboard"
+            app:destination="@id/dashboard" />
+        <action
+            android:id="@+id/action_mainFragment_to_signup"
+            app:destination="@id/signup" />
+    </fragment>
+    <fragment
+        android:id="@+id/signup"
+        android:name="com.utsav.booklevoire.ui.main.Signup"
+        android:label="fragment_signup"
+        tools:layout="@layout/fragment_signup" >
+        <action
+            android:id="@+id/action_signup_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dashboard"
+        android:name="com.utsav.booklevoire.ui.main.Dashboard"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboard_to_detailView"
+            app:destination="@id/detailView" />
+        <action
+            android:id="@+id/action_dashboard_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailView"
+        android:name="com.utsav.booklevoire.ui.main.DetailView"
+        android:label="fragment_detail_view"
+        tools:layout="@layout/fragment_detail_view" >
+        <action
+            android:id="@+id/action_detailView_to_dashboard"
+            app:destination="@id/dashboard" />
+    </fragment>
+</navigation>
