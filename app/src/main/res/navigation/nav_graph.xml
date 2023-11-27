@@ -15,7 +15,9 @@
             app:destination="@id/dashboard" />
         <action
             android:id="@+id/action_mainFragment_to_signup"
-            app:destination="@id/signup" />
+            app:destination="@id/signup"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/signup"
@@ -24,7 +26,9 @@
         tools:layout="@layout/fragment_signup" >
         <action
             android:id="@+id/action_signup_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/dashboard"

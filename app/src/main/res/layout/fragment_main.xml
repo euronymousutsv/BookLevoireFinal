@@ -27,7 +27,7 @@
             app:layout_constraintVertical_bias="0.5">
 
             <EditText
-                android:id="@+id/signupPassword"
+                android:id="@+id/signInPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -38,11 +38,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/signupEmail"
+                app:layout_constraintTop_toBottomOf="@+id/signInEmail"
                 app:layout_constraintVertical_bias="0.14" />
 
             <EditText
-                android:id="@+id/signupEmail"
+                android:id="@+id/signInEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -57,7 +57,7 @@
                 app:layout_constraintVertical_bias="0.13" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/signInBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/playfair_display_sc"
@@ -66,11 +66,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/signupPassword"
+                app:layout_constraintTop_toBottomOf="@+id/signInPassword"
                 app:layout_constraintVertical_bias="0.298" />
 
             <TextView
-                android:id="@+id/signinTxtV"
+                android:id="@+id/signupTxtView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/playfair_display_sc"
@@ -80,7 +80,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button" />
+                app:layout_constraintTop_toBottomOf="@+id/signInBtn" />
 
             <ImageView
                 android:id="@+id/imageView"
