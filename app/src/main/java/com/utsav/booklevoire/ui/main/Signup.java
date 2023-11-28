@@ -12,9 +12,12 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.utsav.booklevoire.R;
+import com.utsav.booklevoire.User;
 import com.utsav.booklevoire.databinding.FragmentSignupBinding;
+import com.utsav.booklevoire.viewModel.MainViewModel;
 import com.utsav.booklevoire.viewModel.SignupViewModel;
 
 public class Signup extends Fragment {
@@ -23,6 +26,13 @@ FragmentSignupBinding binding;
 
     public static Signup newInstance() {
         return new Signup();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mViewModel=new ViewModelProvider(this).get(SignupViewModel.class);
+        mViewModel.createAppRepo(getContext());
     }
 
     @Override
@@ -41,7 +51,18 @@ FragmentSignupBinding binding;
         binding.signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_signup_to_mainFragment);
+               String email=binding.signupEmail.getText().toString();
+               String Name= binding.signupName.getText().toString();
+               String password=binding.signupPassword.getText().toString();
+                User user=new User();
+                user.Email=email;
+                user.Name= Name;
+                user.Password=password;
+                user.uid=1;
+
+
+                mViewModel.insert(user);
+                Toast.makeText(getContext(),"SignUp Successfull",Toast.LENGTH_SHORT).show();
             }
         });
         binding.signInTxtView.setOnClickListener(new View.OnClickListener() {
