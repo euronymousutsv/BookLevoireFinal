@@ -7,30 +7,20 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.Dashboard">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="102dp"
-        android:layout_height="181dp"
-        app:layout_constraintBottom_toBottomOf="@+id/cardView9"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/showBookRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cardView9"
-        app:layout_constraintVertical_bias="0.0">
-
-        <ImageView
-            android:id="@+id/image1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/baseline_book_24"
-            app:srcCompat="@drawable/baseline_book_24"
-            tools:layout_editor_absoluteX="19dp"
-            tools:layout_editor_absoluteY="56dp" />
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView9"
         android:layout_width="102dp"
         android:layout_height="181dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/cardView8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -52,6 +42,7 @@
         android:id="@+id/cardView2"
         android:layout_width="102dp"
         android:layout_height="181dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/cardView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.061"
@@ -72,6 +63,7 @@
         android:id="@+id/cardView8"
         android:layout_width="102dp"
         android:layout_height="181dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.919"
@@ -91,6 +83,7 @@
         android:id="@+id/cardView7"
         android:layout_width="102dp"
         android:layout_height="181dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.919"
@@ -111,6 +104,7 @@
         android:id="@+id/cardView3"
         android:layout_width="102dp"
         android:layout_height="181dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/cardView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.061"
@@ -131,6 +125,7 @@
         android:id="@+id/cardView6"
         android:layout_width="102dp"
         android:layout_height="181dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.919"
@@ -151,6 +146,7 @@
         android:id="@+id/cardView4"
         android:layout_width="102dp"
         android:layout_height="181dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/cardView6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -171,6 +167,7 @@
         android:id="@+id/cardView5"
         android:layout_width="102dp"
         android:layout_height="181dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/cardView7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"

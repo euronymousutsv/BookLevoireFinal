@@ -21,7 +21,7 @@ import com.utsav.booklevoire.viewModel.MainViewModel;
 import com.utsav.booklevoire.viewModel.SignupViewModel;
 
 public class Signup extends Fragment {
-FragmentSignupBinding binding;
+private FragmentSignupBinding binding;
     private SignupViewModel mViewModel;
 
     public static Signup newInstance() {
@@ -74,13 +74,13 @@ FragmentSignupBinding binding;
 
 
     }
-
+/*
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(SignupViewModel.class);
         // TODO: Use the ViewModel
-    }
+    }*/
 
     @Override
     public void onDestroyView() {

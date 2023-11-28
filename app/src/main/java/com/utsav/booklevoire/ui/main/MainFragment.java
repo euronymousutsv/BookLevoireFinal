@@ -27,7 +27,7 @@ import com.utsav.booklevoire.databinding.FragmentMainBinding;
 import com.utsav.booklevoire.viewModel.MainViewModel;
 
 public class MainFragment extends Fragment {
-FragmentMainBinding binding;
+private FragmentMainBinding binding;
 
 
     private MainViewModel mViewModel;

@@ -17,11 +17,17 @@ import com.utsav.booklevoire.databinding.FragmentDetailViewBinding;
 import com.utsav.booklevoire.viewModel.DetailViewViewModel;
 
 public class DetailView extends Fragment {
-FragmentDetailViewBinding binding;
+private FragmentDetailViewBinding binding;
     private DetailViewViewModel mViewModel;
 
     public static DetailView newInstance() {
         return new DetailView();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mViewModel = new ViewModelProvider(this).get(DetailViewViewModel.class);
     }
 
     @Override
@@ -39,13 +45,13 @@ FragmentDetailViewBinding binding;
         super.onViewCreated(view, savedInstanceState);
 
     }
-
+/*
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(DetailViewViewModel.class);
         // TODO: Use the ViewModel
-    }
+    }*/
     @Override
     public void onDestroyView() {
         super.onDestroyView();
