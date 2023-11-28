@@ -6,6 +6,8 @@ import android.content.Context;
 import androidx.room.Dao;
 import androidx.room.Room;
 
+import java.util.List;
+
 public class AppRepo {
     private AppDatabase db;
     private DAO mainDao;
@@ -19,4 +21,9 @@ public void insert(User user){
         mainDao.insertUser(user);
 
 }
+
+
+
+
 }
+

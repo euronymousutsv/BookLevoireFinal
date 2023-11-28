@@ -1,5 +1,6 @@
 package com.utsav.booklevoire.ui.main;
 
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -14,11 +15,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseUser;
 import com.utsav.booklevoire.R;
 import com.utsav.booklevoire.User;
 import com.utsav.booklevoire.databinding.FragmentSignupBinding;
 import com.utsav.booklevoire.viewModel.MainViewModel;
 import com.utsav.booklevoire.viewModel.SignupViewModel;
+
+import java.util.Random;
 
 public class Signup extends Fragment {
 FragmentSignupBinding binding;
@@ -33,6 +37,8 @@ FragmentSignupBinding binding;
         super.onCreate(savedInstanceState);
         mViewModel=new ViewModelProvider(this).get(SignupViewModel.class);
         mViewModel.createAppRepo(getContext());
+
+
     }
 
     @Override
@@ -42,6 +48,9 @@ FragmentSignupBinding binding;
         binding=FragmentSignupBinding.inflate(inflater,container,false);
         View view=binding.getRoot();
         return view;
+
+
+
 
     }
 
@@ -54,11 +63,18 @@ FragmentSignupBinding binding;
                String email=binding.signupEmail.getText().toString();
                String Name= binding.signupName.getText().toString();
                String password=binding.signupPassword.getText().toString();
+
+               //Firebase
+                Random rand=new Random();
+                int rand_int= rand.nextInt(1000);
+
+
+
                 User user=new User();
                 user.Email=email;
                 user.Name= Name;
                 user.Password=password;
-                user.uid=1;
+                user.uid=rand_int;
 
 
                 mViewModel.insert(user);

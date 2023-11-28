@@ -25,7 +25,7 @@ public void insert (User user){
 
     // TODO: Implement the ViewModel
 // Firebase Service implementation
-    MutableLiveData<FirebaseUser> mutableLiveData;
+   /* MutableLiveData<FirebaseUser> mutableLiveData;
     public MainViewModel(){mutableLiveData=new MutableLiveData<>();}
     public void updateFirebaseUser(){
         mutableLiveData.setValue((FirebaseAuth.getInstance().getCurrentUser()));
@@ -40,7 +40,7 @@ public void insert (User user){
     public MutableLiveData<FirebaseUser>getMutableLiveData(){
         return mutableLiveData;
 
-    }
+    }*/
 
 
 
