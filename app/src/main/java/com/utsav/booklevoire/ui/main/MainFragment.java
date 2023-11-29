@@ -23,14 +23,18 @@ import com.google.firebase.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.utsav.booklevoire.R;
+import com.utsav.booklevoire.User;
 import com.utsav.booklevoire.databinding.FragmentMainBinding;
 import com.utsav.booklevoire.viewModel.MainViewModel;
 
 public class MainFragment extends Fragment {
+
+   private MainViewModel mViewModel;
 private FragmentMainBinding binding;
+public static MainFragment newInstance() {return new MainFragment();}
 
+/*
 
-    private MainViewModel mViewModel;
 //LiveData<FirebaseUser>firebaseUserLiveData ;
 //private ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
   //      new FirebaseAuthUIActivityResultContract(),(result -> {
@@ -45,46 +49,18 @@ private FragmentMainBinding binding;
   //  public static MainFragment newInstance() {
       //  return new MainFragment();
     //}
-
+*/
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(MainViewModel.class);
         // TODO: Use the ViewModel
-
+mViewModel.createAppRepo(getContext());
     }
 
 
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        binding.signInBtn.setOnClickListener(new View.OnClickListener() {
 
-
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_dashboard);
-            }
-        });
-        binding.signupTxtView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_signup);
-            }
-        });
-
-        //firebaseUserLiveData= mViewModel.getMutableLiveData();
-        //firebaseUserLiveData.observe(getViewLifecycleOwner(),firebaseUser -> {
-          // if(firebaseUser!=null){
-            //   Toast.makeText(getActivity(),"Login Success", Toast.LENGTH_SHORT).show();
-           //}
-           //else startSignIn();
-        //});
-        //mViewModel.updateFirebaseUser();
-
-
-    }
 
     @Nullable
     @Override
@@ -104,4 +80,58 @@ private FragmentMainBinding binding;
         super.onDestroyView();
         binding=null;
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        binding.signInBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email=binding.signInEmail.getText().toString();
+                String password=binding.signInPassword.getText().toString();
+                User user=new User();
+                user=mViewModel.findbyEmail(email,password);
+
+
+                if(user!=null){
+                    int id=user.uid;
+
+                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_dashboard);}
+                else{
+                    Toast.makeText(getContext(),"Please Login With Valid Credential",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+    /*
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        binding.signInBtn.setOnClickListener(new View.OnClickListener() {
+            User user=new User();
+
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_dashboard);
+            }
+        });
+        binding.signupTxtView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_signup);
+            }
+        });
+
+        //firebaseUserLiveData= mViewModel.getMutableLiveData();
+        //firebaseUserLiveData.observe(getViewLifecycleOwner(),firebaseUser -> {
+        // if(firebaseUser!=null){
+        //   Toast.makeText(getActivity(),"Login Success", Toast.LENGTH_SHORT).show();
+        //}
+        //else startSignIn();
+        //});
+        //mViewModel.updateFirebaseUser();
+
+
+    }*/
 }

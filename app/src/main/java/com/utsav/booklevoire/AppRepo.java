@@ -24,4 +24,7 @@ public void insert(User user){
  public List<Book> getallBook(){
         return mainDao.getallBook();
     }
-}
+
+public User findbyEmail(String email,String password){
+    return mainDao.findByemail(email, password);
+}}

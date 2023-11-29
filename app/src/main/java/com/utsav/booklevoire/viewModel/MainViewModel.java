@@ -17,8 +17,8 @@ private AppRepo appRepo;
 public void createAppRepo(Context context){
     appRepo=new AppRepo(context);
 }
-public void insert (User user){
-    appRepo.insert(user);
+public User findbyEmail(String email, String password){
+    return appRepo.findbyEmail(email,password);
 }
 
 

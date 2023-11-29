@@ -17,7 +17,8 @@ public interface DAO {
     User findByID(int id);
     @Query("SELECT*From Book")
     List<Book> getallBook();
-
+@Query("SELECT*FROM USER WHERE EMAIL=:email AND Password =:password Limit 1")
+User findByemail(String email, String password);
 
 
 }

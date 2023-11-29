@@ -63,6 +63,7 @@ private FragmentSignupBinding binding;
 
                 mViewModel.insert(user);
                 Toast.makeText(getContext(),"SignUp Successfull",Toast.LENGTH_SHORT).show();
+
             }
         });
         binding.signInTxtView.setOnClickListener(new View.OnClickListener() {
