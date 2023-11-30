@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "492050903370",
+    "project_id": "book-levoire",
+    "storage_bucket": "book-levoire.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492050903370:android:e76771e564c7ab9a2811b3",
+        "android_client_info": {
+          "package_name": "com.utsav.app2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBi4Rz1rWzYuDvdXpF303oCfG4-R0mJcc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492050903370:android:9527b7301ff11f322811b3",
+        "android_client_info": {
+          "package_name": "com.utsav.application2235"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBi4Rz1rWzYuDvdXpF303oCfG4-R0mJcc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492050903370:android:4119e5481f8abcdc2811b3",
+        "android_client_info": {
+          "package_name": "com.utsav.assignment_10234"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBi4Rz1rWzYuDvdXpF303oCfG4-R0mJcc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492050903370:android:39bdc3a1ef34e8812811b3",
+        "android_client_info": {
+          "package_name": "com.utsav.booklevoire"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBi4Rz1rWzYuDvdXpF303oCfG4-R0mJcc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
