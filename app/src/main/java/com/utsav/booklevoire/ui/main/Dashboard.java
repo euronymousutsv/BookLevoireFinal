@@ -2,41 +2,28 @@ package com.utsav.booklevoire.ui.main;
 
 import androidx.lifecycle.ViewModelProvider;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridLayout;
-import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.squareup.picasso.Picasso;
-import com.utsav.booklevoire.Book;
-import com.utsav.booklevoire.BookRecyclerViewAdapter;
+import com.utsav.booklevoire.Database_n_Repository.Book;
+import com.utsav.booklevoire.RecyclerAdapter.BookRecyclerViewAdapter;
 import com.utsav.booklevoire.R;
 import com.utsav.booklevoire.databinding.FragmentDashboardBinding;
 import com.utsav.booklevoire.viewModel.DashboardViewModel;
 
-import java.io.InputStream;
-import java.net.URL;
 import java.util.List;
-import java.util.concurrent.Executor;
 
 public class Dashboard extends Fragment {
-private FragmentDashboardBinding binding;
+private FragmentDashboardBinding binding; //binding fragment
 
     private DashboardViewModel mViewModel;
 
@@ -60,7 +47,7 @@ private FragmentDashboardBinding binding;
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         return view;
-
+//inflating the bindingobject
 
     }
 
@@ -68,7 +55,7 @@ private FragmentDashboardBinding binding;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+//Displays data on recyclerview
         binding.showBookRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.showBookRecyclerView.setHasFixedSize(true);
 
@@ -77,6 +64,13 @@ private FragmentDashboardBinding binding;
 
         List<Book> list =mViewModel.getallBook();
         bookRecyclerViewAdapter.submitList(list);
+        //Logout with clickEvent
+        binding.button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_dashboard_to_mainFragment);
+            }
+        });
 
 
 
@@ -97,7 +91,7 @@ private FragmentDashboardBinding binding;
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(DashboardViewModel.class);
-        // TODO: Use the ViewModel
+
     }*/
     @Override
     public void onDestroyView() {

@@ -1,4 +1,4 @@
-package com.utsav.booklevoire;
+package com.utsav.booklevoire.RecyclerAdapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.AsyncDifferConfig;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
+import com.utsav.booklevoire.Database_n_Repository.Book;
 import com.utsav.booklevoire.databinding.RecyclerviewShowBookBinding;
 
 public class BookRecyclerViewAdapter extends ListAdapter<Book, ViewHolder> {

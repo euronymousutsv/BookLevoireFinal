@@ -5,11 +5,10 @@ import android.content.Context;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.google.firebase.Firebase;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.utsav.booklevoire.AppRepo;
-import com.utsav.booklevoire.User;
+import com.utsav.booklevoire.AuthenticationRepository;
+import com.utsav.booklevoire.Database_n_Repository.AppRepo;
+import com.utsav.booklevoire.Database_n_Repository.Book;
+import com.utsav.booklevoire.Database_n_Repository.User;
 
 public class MainViewModel extends ViewModel {
 
@@ -20,7 +19,13 @@ public void createAppRepo(Context context){
 public User findbyEmail(String email, String password){
     return appRepo.findbyEmail(email,password);
 }
-
+private MutableLiveData<String>userEmail;
+public MutableLiveData<String>getUserEmail(){
+    if(userEmail==null){
+        userEmail=new MutableLiveData<String>();
+    }
+    return userEmail;
+}
 
 
     // TODO: Implement the ViewModel
@@ -42,6 +47,7 @@ public User findbyEmail(String email, String password){
 
     }*/
 
+//Fire base implementation
 
 
 }

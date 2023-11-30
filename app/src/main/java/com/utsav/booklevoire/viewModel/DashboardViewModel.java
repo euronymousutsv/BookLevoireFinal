@@ -4,9 +4,8 @@ import android.content.Context;
 
 import androidx.lifecycle.ViewModel;
 
-import com.utsav.booklevoire.AppRepo;
-import com.utsav.booklevoire.Book;
-import com.utsav.booklevoire.User;
+import com.utsav.booklevoire.Database_n_Repository.AppRepo;
+import com.utsav.booklevoire.Database_n_Repository.Book;
 
 import java.util.List;
 

@@ -1,10 +1,8 @@
 package com.utsav.booklevoire.ui.main;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,18 +10,15 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.firebase.ui.auth.AuthUI;
-import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract;
-import com.google.firebase.Firebase;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.utsav.booklevoire.R;
-import com.utsav.booklevoire.User;
+import com.utsav.booklevoire.Database_n_Repository.User;
 import com.utsav.booklevoire.databinding.FragmentMainBinding;
 import com.utsav.booklevoire.viewModel.MainViewModel;
 
@@ -84,9 +79,34 @@ mViewModel.createAppRepo(getContext());
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        TextWatcher textWatcher=new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        };
+        binding.signInEmail.addTextChangedListener(textWatcher);
+        final Observer<String>nameObserver=new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable final String newEmail) {
+                binding.signInEmail.setText(newEmail);
+            }
+        };
+        mViewModel.getUserEmail().observe(getViewLifecycleOwner(),nameObserver);
         binding.signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+             //User Login Validation
                 String email=binding.signInEmail.getText().toString();
                 String password=binding.signInPassword.getText().toString();
                 User user=new User();
@@ -101,6 +121,14 @@ mViewModel.createAppRepo(getContext());
                     Toast.makeText(getContext(),"Please Login With Valid Credential",Toast.LENGTH_LONG).show();
                 }
             }
+        });
+        //Navigate to signup page
+        binding.signupTxtView.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_signup);}
+
         });
     }
 

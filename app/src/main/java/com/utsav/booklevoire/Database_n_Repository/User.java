@@ -1,9 +1,9 @@
-package com.utsav.booklevoire;
+package com.utsav.booklevoire.Database_n_Repository;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-
+//creating user entities
 @Entity
 public class User {
     @PrimaryKey

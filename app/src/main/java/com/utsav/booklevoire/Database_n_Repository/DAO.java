@@ -1,11 +1,12 @@
-package com.utsav.booklevoire;
+package com.utsav.booklevoire.Database_n_Repository;
 
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
-import androidx.room.Update;
+
+import com.utsav.booklevoire.Database_n_Repository.Book;
+import com.utsav.booklevoire.Database_n_Repository.User;
 
 import java.util.List;
 
