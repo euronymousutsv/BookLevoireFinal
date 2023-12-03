@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.utsav.booklevoire.R;
 import com.utsav.booklevoire.Database_n_Repository.User;
+import com.utsav.booklevoire.UserClass;
 import com.utsav.booklevoire.databinding.FragmentMainBinding;
 import com.utsav.booklevoire.viewModel.MainViewModel;
 
@@ -50,7 +51,7 @@ public static MainFragment newInstance() {return new MainFragment();}
         super.onCreate(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(MainViewModel.class);
         // TODO: Use the ViewModel
-mViewModel.createAppRepo(getContext());
+//mViewModel.createAppRepo(getContext());
     }
 
 
@@ -102,26 +103,42 @@ mViewModel.createAppRepo(getContext());
                 binding.signInEmail.setText(newEmail);
             }
         };
-        mViewModel.getUserEmail().observe(getViewLifecycleOwner(),nameObserver);
+       // mViewModel.getUserEmail().observe(getViewLifecycleOwner(),nameObserver);
         binding.signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
              //User Login Validation
                 String email=binding.signInEmail.getText().toString();
                 String password=binding.signInPassword.getText().toString();
-                User user=new User();
-                user=mViewModel.findbyEmail(email,password);
+               // User user=new User();
+                //user=mViewModel.findbyEmail(email,password);
+                UserClass user = new UserClass(email,password);
+                mViewModel.signInUser(user);
+                mViewModel.getSignInResult().observe(getViewLifecycleOwner(), isSuccess -> {
+                    if (isSuccess) {
+                        // Sign-in successful, handle navigation or UI updates
+                        Toast.makeText(requireContext(), "Sign-in successful", Toast.LENGTH_SHORT).show();
+                        Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_signup);
+                    } else {
+                        // Sign-in failed, show an error message
+                        Toast.makeText(requireContext(), "Sign-in failed", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
 
-                if(user!=null){
-                    int id=user.uid;
+                //if(user!=null){
+                //    int id=user.uid;
 
-                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_dashboard);}
-                else{
-                    Toast.makeText(getContext(),"Please Login With Valid Credential",Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+                //Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_dashboard);}
+                //else{
+                  //  Toast.makeText(getContext(),"Please Login With Valid Credential",Toast.LENGTH_LONG).show();
+                //}
+           // }
+        }});
+
+
+
+
         //Navigate to signup page
         binding.signupTxtView.setOnClickListener(new View.OnClickListener(){
 

@@ -2,11 +2,17 @@ package com.utsav.booklevoire.viewModel;
 
 import android.content.Context;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseUser;
 import com.utsav.booklevoire.AuthenticationRepository;
 import com.utsav.booklevoire.Database_n_Repository.AppRepo;
 import com.utsav.booklevoire.Database_n_Repository.User;
+import com.utsav.booklevoire.UserClass;
 
 public class SignupViewModel extends ViewModel {
     private AppRepo appRepo;
@@ -46,14 +52,22 @@ public class SignupViewModel extends ViewModel {
 }*/
 //Firebase
 
-    private final AuthenticationRepository AuthenticationRepository = new AuthenticationRepository();
-    private final MutableLiveData<Boolean> registrationResult=AuthenticationRepository.getRegistrationResult();
+    private AuthenticationRepository authRepository;
+    private MutableLiveData<Boolean> registrationResult;
+
+    public SignupViewModel() {
+        authRepository=new AuthenticationRepository();
+        registrationResult = authRepository.getRegistrationResult();
+
+    }
+
     public MutableLiveData<Boolean> getRegistrationResult() {
         return registrationResult;
     }
 
-    public void registerUser(String email, String password) {
-        AuthenticationRepository.registerUser(email, password);
+    public void registerUser(UserClass user) {
+        authRepository.registerUser(user);
     }
+
 
 }

@@ -14,8 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.utsav.booklevoire.R;
 import com.utsav.booklevoire.Database_n_Repository.User;
+import com.utsav.booklevoire.UserClass;
 import com.utsav.booklevoire.databinding.FragmentSignupBinding;
 import com.utsav.booklevoire.viewModel.SignupViewModel;
 
@@ -65,26 +69,24 @@ private FragmentSignupBinding binding;
                 String email=binding.signupEmail.getText().toString();
                String Name= binding.signupName.getText().toString();
                String password=binding.signupPassword.getText().toString();
-
-               mViewModel.registerUser(email,password);
-
-               //Firebase
-                Random rand=new Random();
-                int rand_int= rand.nextInt(1000);
-
-
-
-                User user=new User();
-                user.Email=email;
-                user.Name= Name;
-                user.Password=password;
-                user.uid=rand_int;
-
-
-                mViewModel.insert(user);
-                Toast.makeText(getContext(),"SignUp Successfull",Toast.LENGTH_SHORT).show();
+                UserClass user=new UserClass(email,password);
+                mViewModel.registerUser(user);
+               mViewModel.getRegistrationResult().observe(getViewLifecycleOwner(), isSuccess -> {
+                    if (isSuccess) {
+                        // Registration successful, handle navigation or UI updates
+                        Toast.makeText(requireContext(), "Registration successful", Toast.LENGTH_SHORT).show();
+                    } else {
+                        // Registration failed, show an error message
+                        Toast.makeText(requireContext(), "Registration failed", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
             }
+
+               //Firebase
+
+
+
         });
         binding.signInTxtView.setOnClickListener(new View.OnClickListener() {
             @Override

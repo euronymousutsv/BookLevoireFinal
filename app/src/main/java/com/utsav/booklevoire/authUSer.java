@@ -20,6 +20,7 @@ public class authUSer implements Serializable {
             this.name=name;
             this.email=email;
         }
+
     }
 
 

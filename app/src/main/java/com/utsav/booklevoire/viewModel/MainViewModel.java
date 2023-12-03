@@ -9,10 +9,35 @@ import com.utsav.booklevoire.AuthenticationRepository;
 import com.utsav.booklevoire.Database_n_Repository.AppRepo;
 import com.utsav.booklevoire.Database_n_Repository.Book;
 import com.utsav.booklevoire.Database_n_Repository.User;
+import com.utsav.booklevoire.UserClass;
 
 public class MainViewModel extends ViewModel {
+    private AuthenticationRepository authRepository;
+    private MutableLiveData<Boolean>signInResult;
 
-private AppRepo appRepo;
+
+    public MainViewModel() {
+        authRepository=new AuthenticationRepository();
+        signInResult = authRepository.getSignInResult();
+
+    }
+
+    public MutableLiveData<Boolean> getSignInResult() {
+        return signInResult;
+    }
+
+
+
+
+    public void signInUser(UserClass user) {
+        authRepository.signInUser(user);
+    }
+
+
+}
+
+
+/*private AppRepo appRepo;
 public void createAppRepo(Context context){
     appRepo=new AppRepo(context);
 }
@@ -27,8 +52,29 @@ public MutableLiveData<String>getUserEmail(){
     return userEmail;
 }
 
+   // private AuthenticationRepository authRepository;
+    //private MutableLiveData<Boolean> signInResult;
 
-    // TODO: Implement the ViewModel
+ //   public MainViewModel() {
+      // ... (previous code)
+  //      signInResult = authRepository.getSignInResult();
+
+    //}
+
+
+
+//    public MutableLiveData<Boolean> getSignInResult() {
+    //    return signInResult;
+  //  }
+//
+
+
+    //public void signInUser(UserClass user) {
+      //  authRepository.signInUser(user);
+    //}
+
+
+
 // Firebase Service implementation
    /* MutableLiveData<FirebaseUser> mutableLiveData;
     public MainViewModel(){mutableLiveData=new MutableLiveData<>();}
@@ -50,4 +96,3 @@ public MutableLiveData<String>getUserEmail(){
 //Fire base implementation
 
 
-}
