@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey;
 //creating book entity
 @Entity
 public class Book {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int bID;
     @ColumnInfo(name="bookName")
     public String bookName;

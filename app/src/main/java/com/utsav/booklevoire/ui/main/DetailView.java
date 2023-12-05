@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.squareup.picasso.Picasso;
 import com.utsav.booklevoire.R;
 import com.utsav.booklevoire.databinding.FragmentDetailViewBinding;
 import com.utsav.booklevoire.viewModel.DetailViewViewModel;
@@ -43,7 +44,19 @@ private FragmentDetailViewBinding binding;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+Bundle bundle=getArguments();
+if (bundle!=null){
+    String bookName= bundle.getString("bookName","");
+    String author = bundle.getString("author", "");
+    float rating = bundle.getFloat("rating", 0.0f);
+    String imageUrl = bundle.getString("imageUrl", "");
 
+    binding.bookName.setText(bookName);
+    binding.authortxt.setText(author);
+    binding.ratingBar.setRating(rating);
+
+    Picasso.get().load(imageUrl).into(binding.imageView2);
+        }
     }
 /*
     @Override
@@ -57,5 +70,6 @@ private FragmentDetailViewBinding binding;
         super.onDestroyView();
         binding=null;
     }
+
 
 }

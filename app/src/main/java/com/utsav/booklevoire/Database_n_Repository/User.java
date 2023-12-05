@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey;
 //creating user entities
 @Entity
 public class User {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int uid;
     @ColumnInfo(name="Name")
     public String Name;

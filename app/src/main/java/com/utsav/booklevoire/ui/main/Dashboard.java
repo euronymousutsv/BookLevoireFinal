@@ -19,6 +19,7 @@ import com.utsav.booklevoire.RecyclerAdapter.BookRecyclerViewAdapter;
 import com.utsav.booklevoire.R;
 import com.utsav.booklevoire.databinding.FragmentDashboardBinding;
 import com.utsav.booklevoire.viewModel.DashboardViewModel;
+import com.utsav.booklevoire.viewModel.DetailViewViewModel;
 
 import java.util.List;
 
@@ -26,6 +27,7 @@ public class Dashboard extends Fragment {
 private FragmentDashboardBinding binding; //binding fragment
 
     private DashboardViewModel mViewModel;
+    private DetailViewViewModel detailViewViewModel;
 
 
     public static Dashboard newInstance() {
@@ -59,7 +61,7 @@ private FragmentDashboardBinding binding; //binding fragment
         binding.showBookRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.showBookRecyclerView.setHasFixedSize(true);
 
-        BookRecyclerViewAdapter bookRecyclerViewAdapter = new BookRecyclerViewAdapter();
+        BookRecyclerViewAdapter bookRecyclerViewAdapter = new BookRecyclerViewAdapter(detailViewViewModel);
         binding.showBookRecyclerView.setAdapter(bookRecyclerViewAdapter);
 
         List<Book> list =mViewModel.getallBook();

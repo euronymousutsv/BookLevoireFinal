@@ -10,9 +10,13 @@ import androidx.recyclerview.widget.ListAdapter;
 
 import com.utsav.booklevoire.Database_n_Repository.Book;
 import com.utsav.booklevoire.databinding.RecyclerviewShowBookBinding;
+import com.utsav.booklevoire.viewModel.DetailViewViewModel;
 
 public class BookRecyclerViewAdapter extends ListAdapter<Book, ViewHolder> {
 private RecyclerviewShowBookBinding binding;
+private DetailViewViewModel detailViewViewModel;
+    public BookRecyclerViewAdapter(DetailViewViewModel viewModel){super(diffCallback);
+        this.detailViewViewModel=viewModel;}
     private static DiffUtil.ItemCallback<Book> diffCallback = new DiffUtil.ItemCallback<Book>() {
         @Override
         public boolean areItemsTheSame(@NonNull Book oldItem, @NonNull Book newItem) {
@@ -25,7 +29,8 @@ private RecyclerviewShowBookBinding binding;
         }
     };
 
-    public BookRecyclerViewAdapter(){super(diffCallback);}
+
+
     protected BookRecyclerViewAdapter(@NonNull DiffUtil.ItemCallback<Book> diffCallback) {
         super(diffCallback);
     }
@@ -39,9 +44,7 @@ private RecyclerviewShowBookBinding binding;
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater=LayoutInflater.from(parent.getContext());
         binding =RecyclerviewShowBookBinding.inflate(inflater,parent,false);
-        ViewHolder viewHolder=new ViewHolder(binding);
-        return viewHolder;
-
+       return new ViewHolder(binding,detailViewViewModel);
     }
 
     @Override
