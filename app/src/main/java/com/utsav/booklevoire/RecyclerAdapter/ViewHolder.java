@@ -4,13 +4,15 @@ import android.view.View;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 import com.utsav.booklevoire.Database_n_Repository.Book;
+import com.utsav.booklevoire.R;
 import com.utsav.booklevoire.databinding.RecyclerviewShowBookBinding;
 //view holder for recycler adapter
-public class ViewHolder extends RecyclerView.ViewHolder {
+public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 private RecyclerviewShowBookBinding binding;
     public ViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -18,6 +20,7 @@ private RecyclerviewShowBookBinding binding;
 public ViewHolder(RecyclerviewShowBookBinding binding){
         super(binding.getRoot());
         this.binding=binding;
+        binding.getRoot().setOnClickListener(this);
 }
 //This method will load data into recycle view adapter
 public void update(Book book){
@@ -35,5 +38,9 @@ binding.ratingBarRecycle.setRating(Float.valueOf(book.AverageRating));
 }
 
 
-
+    @Override
+    public void onClick(View v) {
+        int x = getAdapterPosition();
+        Navigation.findNavController(v).navigate(R.id.action_dashboard_to_detailView);
+    }
 }

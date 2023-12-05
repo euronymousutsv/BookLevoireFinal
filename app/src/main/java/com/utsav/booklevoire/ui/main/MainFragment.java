@@ -118,7 +118,7 @@ public static MainFragment newInstance() {return new MainFragment();}
                     if (isSuccess) {
                         // Sign-in successful, handle navigation or UI updates
                         Toast.makeText(requireContext(), "Sign-in successful", Toast.LENGTH_SHORT).show();
-                        Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_signup);
+                        Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_dashboard);
                     } else {
                         // Sign-in failed, show an error message
                         Toast.makeText(requireContext(), "Sign-in failed", Toast.LENGTH_SHORT).show();
